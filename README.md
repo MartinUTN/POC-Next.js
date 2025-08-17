@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -40,3 +41,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 Toda la documentación de la POC: https://drive.google.com/drive/folders/1XCgzQaxl5CC-FbkIC4bomaerzL13oDpN?usp=drive_link
 >>>>>>> 582a74181dec327f3c78e75cac95bdc7e4bd2a8f
+=======
+
+>>>>>>> fb377339daaa1dd038a67599d31a6a6ef32f7ab6
