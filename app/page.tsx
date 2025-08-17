@@ -1,103 +1,150 @@
-import Image from "next/image";
+/*
+ * =============================================================================
+ * ARCHIVO: app/page.tsx
+ * POR FAVOR, COPIA Y PEGA ESTE CÓDIGO EN EL ARCHIVO `app/page.tsx`
+ * =============================================================================
+ */
 
-export default function Home() {
+import React from 'react';
+
+// --- Componentes de la UI ---
+// Para mantener el código organizado, definimos pequeños componentes reutilizables.
+
+// Componente para el encabezado principal de la página.
+const Header = () => (
+  <header className="bg-white shadow-md">
+    <div className="container mx-auto px-6 py-4">
+      <h1 className="text-4xl font-bold text-center text-gray-900">
+        Explorando Next.js
+      </h1>
+      <p className="text-center text-lg text-gray-600 mt-2">
+        Una guía interactiva basada en el documento POC
+      </p>
+    </div>
+  </header>
+);
+
+// Componente para una tarjeta de información.
+// Recibe un título, un contenido (children) y un icono opcional.
+const InfoCard = ({ title, children, icon }: { title: string; children: React.ReactNode; icon?: string }) => (
+  <div className="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+    <div className="p-6">
+      <h2 className="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+        {icon && <span className="mr-3 text-2xl">{icon}</span>}
+        {title}
+      </h2>
+      <div className="text-gray-700 space-y-3 leading-relaxed">
+        {children}
+      </div>
+    </div>
+  </div>
+);
+
+// Componente para el pie de página.
+const Footer = () => (
+    <footer className="text-center py-8 mt-12">
+        <p className="text-gray-500">
+            Página creada con Next.js y Tailwind CSS.
+        </p>
+        <p className="text-gray-500 mt-1">
+            Información extraída del POC de la UTN F.R.RO - 2025.
+        </p>
+    </footer>
+);
+
+
+// --- Componente Principal de la Página ---
+// Aquí se ensambla toda la página utilizando los componentes definidos arriba.
+export default function HomePage() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen">
+      <Header />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <main className="container mx-auto px-6 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          {/* Tarjeta de Introducción */}
+          <div className="lg:col-span-3">
+            <InfoCard title="Introducción a Next.js" icon="🚀">
+              <p>
+                Next.js es un framework open-source basado en React que permite construir aplicaciones web modernas. Su enfoque se centra en el <strong>rendimiento</strong>, la <strong>escalabilidad</strong> y una excelente <strong>experiencia de desarrollador</strong>. A diferencia de React puro, Next.js ofrece renderizado tanto del lado del servidor (SSR) como del cliente (CSR), además de generación de sitios estáticos (SSG).
+              </p>
+            </InfoCard>
+          </div>
+
+          {/* Tarjeta de Historia */}
+          <InfoCard title="Historia y Evolución" icon="📜">
+            <p>
+              Lanzado en 2016 por Vercel (antes ZEIT), Next.js buscaba simplificar el renderizado del lado del servidor en React. Ha evolucionado enormemente, introduciendo características clave como:
+            </p>
+            <ul className="list-disc list-inside pl-2 space-y-1">
+              <li><strong>Rutas basadas en archivos:</strong> Simple y automático.</li>
+              <li><strong>API Routes:</strong> Crea endpoints de API dentro del mismo proyecto.</li>
+              <li><strong>Static Site Generation (SSG):</strong> Para sitios ultra rápidos.</li>
+              <li><strong>App Router:</strong> Un nuevo paradigma introducido en la versión 13.</li>
+            </ul>
+          </InfoCard>
+
+          {/* Tarjeta de Arquitectura */}
+          <InfoCard title="Arquitectura y Funcionamiento" icon="🏗️">
+            <p>
+              Next.js es flexible gracias a sus múltiples estrategias de renderizado:
+            </p>
+            <ul className="list-disc list-inside pl-2 space-y-1 font-mono text-sm">
+                <li><strong>SSG (Static Site Generation):</strong> El HTML se genera en tiempo de construcción. Ideal para blogs o portfolios.</li>
+                <li><strong>SSR (Server-side Rendering):</strong> El HTML se genera en cada petición. Perfecto para contenido dinámico y personalizado.</li>
+                <li><strong>ISR (Incremental Static Regeneration):</strong> Actualiza páginas estáticas sin reconstruir todo el sitio.</li>
+                <li><strong>CSR (Client-side Rendering):</strong> El renderizado tradicional de React, en el navegador.</li>
+            </ul>
+          </InfoCard>
+
+          {/* Tarjeta de Comparativa */}
+          <InfoCard title="Comparativa con otros Frameworks" icon="🆚">
+            <p>
+              Next.js destaca por su equilibrio entre simplicidad y potencia.
+            </p>
+            <ul className="list-disc list-inside pl-2 space-y-1">
+              <li><strong>vs React:</strong> Next.js añade estructura, enrutamiento y optimizaciones sobre la librería de React.</li>
+              <li><strong>vs Gatsby:</strong> Ofrece mayor flexibilidad con su renderizado híbrido, mientras que Gatsby se enfoca más en sitios estáticos.</li>
+              <li><strong>vs Remix:</strong> Ambos son potentes, pero Next.js tiene una comunidad más grande y un ecosistema más maduro.</li>
+            </ul>
+          </InfoCard>
+
+          {/* Tarjeta de Casos de Uso */}
+          <div className="md:col-span-2 lg:col-span-3">
+            <InfoCard title="Casos de Uso y Ejemplos Reales" icon="🏢">
+              <p>
+                Grandes empresas confían en Next.js para sus aplicaciones de alto tráfico, demostrando su escalabilidad y rendimiento en producción. Algunos ejemplos notables incluyen:
+              </p>
+              <div className="flex flex-wrap gap-4 mt-4 justify-center">
+                <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">Netflix</span>
+                <span className="bg-red-100 text-red-800 px-3 py-1 rounded-full font-semibold">TikTok</span>
+                <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full font-semibold">Twitch</span>
+                <span className="bg-gray-200 text-gray-800 px-3 py-1 rounded-full font-semibold">GitHub</span>
+                <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full font-semibold">Hulu</span>
+              </div>
+            </InfoCard>
+          </div>
+          
+          {/* Tarjeta de Buenas Prácticas */}
+          <div className="lg:col-span-3">
+            <InfoCard title="Buenas Prácticas" icon="✅">
+                 <p>
+                    Para sacar el máximo provecho de Next.js, es recomendable:
+                </p>
+                <ul className="list-disc list-inside pl-2 space-y-2 mt-2">
+                    <li><strong>Elegir la estrategia de renderizado correcta</strong> para cada página (SSG, SSR, ISR).</li>
+                    <li>Utilizar el componente <strong>{`<Image>`}</strong> para optimizar imágenes automáticamente.</li>
+                    <li>Aprovechar los <strong>Server Components</strong> para reducir el JavaScript enviado al cliente.</li>
+                    <li>Usar <strong>TypeScript</strong> desde el inicio para un código más robusto y mantenible.</li>
+                </ul>
+            </InfoCard>
+          </div>
+
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+      <Footer />
     </div>
   );
 }
