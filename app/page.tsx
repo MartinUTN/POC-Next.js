@@ -3,6 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import styles from './page.module.css';
 
+
 const Header = () => (
   <header className={styles.mainHeader}>
     <div className={styles.headerContent}>
@@ -10,7 +11,7 @@ const Header = () => (
         Explorando Next.js
       </h1>
       <p className={styles.headerSubtitle}>
-        Una guía interactiva basada en el documento POC
+        Una guía interactiva sobre Next.js
       </p>
     </div>
   </header>
@@ -34,9 +35,6 @@ const Footer = () => (
   <footer className={styles.mainFooter}>
     <p className={styles.footerText}>
       Página creada con Next.js y CSS.
-    </p>
-    <p className={styles.footerText}>
-      Información extraída del POC de la UTN F.R.RO - 2025.
     </p>
   </footer>
 );
@@ -82,7 +80,17 @@ export default function HomePage() {
               <li><strong>CSR (Client-side Rendering):</strong> El renderizado tradicional de React, en el navegador.</li>
             </ul>
           </InfoCard>
-          
+          {/* Tarjeta de Comparativa */}
+            <InfoCard title="Comparativa con otros Frameworks" icon="🆚">
+            <p>
+              Next.js destaca por su equilibrio entre simplicidad y potencia.
+            </p>
+            <ul>
+              <li><strong>vs React:</strong> Next.js añade estructura, enrutamiento y optimizaciones sobre la librería de React.</li>
+              <li><strong>vs Gatsby:</strong> Ofrece mayor flexibilidad con su renderizado híbrido, mientras que Gatsby se enfoca más en sitios estáticos.</li>
+              <li><strong>vs Remix:</strong> Ambos son potentes, pero Next.js tiene una comunidad más grande y un ecosistema más maduro.</li>
+            </ul>
+          </InfoCard>
           {/* Tarjeta de Demostración Práctica (NUEVA) */}
           <div className={styles.lgColSpan3}>
             <InfoCard title="Demostración Práctica" icon="🧪">
@@ -122,17 +130,8 @@ export default function HomePage() {
             </InfoCard>
           </div>
 
-          {/* Tarjeta de Comparativa */}
-          <InfoCard title="Comparativa con otros Frameworks" icon="🆚">
-            <p>
-              Next.js destaca por su equilibrio entre simplicidad y potencia.
-            </p>
-            <ul>
-              <li><strong>vs React:</strong> Next.js añade estructura, enrutamiento y optimizaciones sobre la librería de React.</li>
-              <li><strong>vs Gatsby:</strong> Ofrece mayor flexibilidad con su renderizado híbrido, mientras que Gatsby se enfoca más en sitios estáticos.</li>
-              <li><strong>vs Remix:</strong> Ambos son potentes, pero Next.js tiene una comunidad más grande y un ecosistema más maduro.</li>
-            </ul>
-          </InfoCard>
+          
+
 
           {/* Tarjeta de Casos de Uso */}
           <div className={styles.mdColSpan2LgColSpan3}>
@@ -157,7 +156,7 @@ export default function HomePage() {
                 Para sacar el máximo provecho de Next.js, es recomendable:
               </p>
               <ul>
-                <li><strong>Elegir la estrategia de renderizado correcta</strong> para cada página (SSG, SSR, ISR).</li>
+                <li><strong>Elegir la estrategia de renderizado correcta</strong> para cada página (SSG, SSR, ISR, CSR).</li>
                 <li>Utilizar el componente <strong>{`<Image>`}</strong> para optimizar imágenes automáticamente.</li>
                 <li>Aprovechar los <strong>Server Components</strong> para reducir el JavaScript enviado al cliente.</li>
                 <li>Usar <strong>TypeScript</strong> desde el inicio para un código más robusto y mantenible.</li>

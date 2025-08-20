@@ -142,7 +142,7 @@
   font-size: 0.9rem;
 }
 
-/* --- CAMBIOS Y NUEVOS ESTILOS --- */
+
 
 /* 1. Efecto Hover Sutil para Tarjetas (Clase .card genérica si la usas) */
 .card {
@@ -154,8 +154,8 @@
 }
 
 .card:hover {
-  transform: translateY(-2px); /* Efecto de levantamiento sutil */
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12); /* Sombra un poco más pronunciada */
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12); 
 }
 
 /* 2. Nuevos Estilos para la Tarjeta de Demostración */

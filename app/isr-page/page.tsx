@@ -3,14 +3,13 @@ import { DemoPageLayout } from '../components/DemoPageLayout';
 import { InfoCard } from '../components/InfoCard';
 
 // Esta función obtiene datos y le dice a Next.js que los guarde en caché,
-// pero que los revalide (vuelva a obtener) como máximo cada 10 segundos.
+// pero que los vuelva a obtener como máximo cada 10 segundos.
 async function getRevalidatedData() {
   try {
-    // CORRECCIÓN: Usamos un ID estático (siempre el mismo) para que Next.js pueda usar el caché.
     const staticId = 1; 
     const res = await fetch(`https://jsonplaceholder.typicode.com/todos/${staticId}`, {
       next: {
-        revalidate: 10, // La magia del ISR: re-genera la página cada 10 segundos.
+        revalidate: 10, // re-genera la página cada 10 segundos.
       },
     });
     
