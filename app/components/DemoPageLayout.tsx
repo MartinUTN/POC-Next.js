@@ -16,7 +16,6 @@ const Header = () => (
 const Footer = () => (
     <footer className={styles.mainFooter}>
         <p className={styles.footerText}>Página creada con Next.js y CSS.</p>
-        <p className={styles.footerText}>Información extraída del POC de la UTN F.R.RO - 2025.</p>
     </footer>
 );
 
