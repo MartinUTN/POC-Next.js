@@ -1,4 +1,6 @@
+// app/page.tsx
 import React from 'react';
+import Link from 'next/link';
 import styles from './page.module.css';
 
 const Header = () => (
@@ -80,6 +82,45 @@ export default function HomePage() {
               <li><strong>CSR (Client-side Rendering):</strong> El renderizado tradicional de React, en el navegador.</li>
             </ul>
           </InfoCard>
+          
+          {/* Tarjeta de Demostración Práctica (NUEVA) */}
+          <div className={styles.lgColSpan3}>
+            <InfoCard title="Demostración Práctica" icon="🧪">
+              <p>
+                Explora las diferentes estrategias de renderizado en acción. Cada enlace te llevará a una página que demuestra un concepto clave de Next.js.
+              </p>
+              <div className={styles.demoGrid}>
+                <Link href="/ssg-page" className={styles.demoLink}>
+                  <div>
+                    <h3>Estático (SSG)</h3>
+                    <p>Generado una vez. El más rápido.</p>
+                  </div>
+                  <span>&rarr;</span>
+                </Link>
+                <Link href="/ssr-page" className={styles.demoLink}>
+                  <div>
+                    <h3>Servidor (SSR)</h3>
+                    <p>Generado en cada solicitud.</p>
+                  </div>
+                  <span>&rarr;</span>
+                </Link>
+                <Link href="/isr-page" className={styles.demoLink}>
+                  <div>
+                    <h3>Incremental (ISR)</h3>
+                    <p>Estático que se revalida.</p>
+                  </div>
+                  <span>&rarr;</span>
+                </Link>
+                <Link href="/csr-page" className={styles.demoLink}>
+                  <div>
+                    <h3>Cliente (CSR)</h3>
+                    <p>Renderizado en el navegador.</p>
+                  </div>
+                  <span>&rarr;</span>
+                </Link>
+              </div>
+            </InfoCard>
+          </div>
 
           {/* Tarjeta de Comparativa */}
           <InfoCard title="Comparativa con otros Frameworks" icon="🆚">
