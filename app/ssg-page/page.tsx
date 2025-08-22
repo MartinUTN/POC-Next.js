@@ -1,4 +1,3 @@
-// app/ssg-page/page.tsx
 import { DemoPageLayout } from '../components/DemoPageLayout';
 import { InfoCard } from '../components/InfoCard';
 

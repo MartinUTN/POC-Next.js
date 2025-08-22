@@ -1,4 +1,3 @@
-// app/isr-page/page.tsx
 import { DemoPageLayout } from '../components/DemoPageLayout';
 import { InfoCard } from '../components/InfoCard';
 
@@ -9,12 +8,11 @@ async function getRevalidatedData() {
     const staticId = 1; 
     const res = await fetch(`https://jsonplaceholder.typicode.com/todos/${staticId}`, {
       next: {
-        revalidate: 10, // re-genera la página cada 10 segundos.
+        revalidate: 10,
       },
     });
     
     if (!res.ok) {
-      // Maneja errores HTTP como 404 o 500.
       return { title: 'No se pudo cargar la tarea en este momento (Error de respuesta).', id: 'Error de API', fetchTime: new Date().toLocaleString('es-AR', { timeZone: 'America/Argentina/Buenos_Aires' }) };
     }
   
@@ -24,7 +22,6 @@ async function getRevalidatedData() {
       fetchTime: new Date().toLocaleString('es-AR', { timeZone: 'America/Argentina/Buenos_Aires' })
     };
   } catch (error) {
-    // Captura errores de red (como 'fetch failed') u otras excepciones.
     console.error("Fetch error:", error);
     return { title: 'No se pudo conectar con el servicio (Error de red).', id: 'Error de Conexión', fetchTime: new Date().toLocaleString('es-AR', { timeZone: 'America/Argentina/Buenos_Aires' }) };
   }

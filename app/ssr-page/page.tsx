@@ -1,4 +1,3 @@
-// app/ssr-page/page.tsx
 import { DemoPageLayout } from '../components/DemoPageLayout';
 import { InfoCard } from '../components/InfoCard';
 
@@ -6,7 +5,6 @@ import { InfoCard } from '../components/InfoCard';
 // generada en el servidor en cada petición.
 export const dynamic = 'force-dynamic';
 
-// Esta función se ejecuta EN EL SERVIDOR cada vez que alguien visita la página.
 async function getServerSideData() {
   const dynamicData = {
     timestamp: new Date().toLocaleString('es-AR', { timeZone: 'America/Argentina/Buenos_Aires' }),
