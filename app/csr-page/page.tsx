@@ -65,7 +65,7 @@ export default function CSRPage() {
                   como editores de fotos, herramientas de diseño o dashboards privados.
                 </li>
                 <li>
-                  <strong>Ventaja principal:</strong> Experiencia de usuario fluida y rica después de la carga inicial.
+                  <strong>Ventaja principal:</strong> Experiencia de usuario fluida después de la carga inicial.
                 </li>
               </ul>
             </div>
